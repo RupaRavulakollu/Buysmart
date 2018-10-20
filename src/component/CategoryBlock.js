@@ -18,6 +18,7 @@ export default class CategoryBlock extends Component {
         <TouchableOpacity
           onPress={this._onPress.bind(this)}
           activeOpacity={0.9}
+          style={styles.touchable}
         >
           <View>
             <Image style={styles.image} source={{uri: this.props.image}} />
@@ -79,5 +80,8 @@ const styles = {
     height: 200,
     width: null,
     flex: 1
+  },
+  touchable:{
+    padding:5
   }
 };

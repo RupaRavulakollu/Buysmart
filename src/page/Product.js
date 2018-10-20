@@ -65,15 +65,15 @@ export default class Product extends Component {
       <Container style={{backgroundColor: '#fdfdfd'}}>
         <Navbar left={left} right={right} title={this.props.product.title} />
         <Content>
-          <Carousel
-              ref={(carousel) => { this._carousel = carousel; }}
-              sliderWidth={Dimensions.get('window').width}
-              itemWidth={Dimensions.get('window').width}
-              onSnapToItem={(index) => this.setState({ activeSlide: index }) }
-              enableSnap={true}
-            >
-                {this.renderImages()}
-            </Carousel>
+        <Carousel
+             ref={(carousel) => { this._carousel = carousel; }}
+             sliderWidth={Dimensions.get('window').width}
+             itemWidth={Dimensions.get('window').width}
+             onSnapToItem={(index) => this.setState({ activeSlide: index }) }
+             enableSnap={true}
+          >
+              {this.renderImages()}
+          </Carousel>
             <Pagination
               dotsLength={this.state.product.images.length}
               activeDotIndex={this.state.activeSlide}
@@ -97,6 +97,7 @@ export default class Product extends Component {
                 <Text style={{fontSize: 20, fontWeight: 'bold'}}>{this.state.product.price}</Text>
               </Col>
             </Grid>
+
             <Grid style={{marginTop: 15}}>
               <Col>
                 <View style={{flex: 1, justifyContent: 'center'}}>
@@ -115,6 +116,7 @@ export default class Product extends Component {
                 </Picker>
               </Col>
             </Grid>
+
             <Grid>
               <Col>
                 <View style={{flex: 1, justifyContent: 'center'}}>
@@ -133,6 +135,7 @@ export default class Product extends Component {
                 </Picker>
               </Col>
             </Grid>
+
             <Grid>
               <Col>
                 <View style={{flex: 1, justifyContent: 'center'}}>
