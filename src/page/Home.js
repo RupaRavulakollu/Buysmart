@@ -38,7 +38,7 @@ export default class Home extends Component {
     return(
       <SideMenuDrawer ref={(ref) => this._sideMenuDrawer = ref}>
           <Container>
-            <Navbar left={left} right={right} title="MY STORE" />
+            <Navbar left={left} right={right} title="BUY SMART" />
             <Content>
               {this.renderCategories()}
             </Content>
@@ -63,21 +63,25 @@ var categories = [
   {
     id: 1,
     title: 'MEN',
-    image: 'http://res.cloudinary.com/atf19/image/upload/c_scale,w_489/v1500284127/pexels-photo-497848_yenhuf.jpg'
+    //image: 'http://res.cloudinary.com/atf19/image/upload/c_scale,w_489/v1500284127/pexels-photo-497848_yenhuf.jpg'
+    image: 'https://ruparavulakollu.000webhostapp.com/images/men.jpeg'
   },
   {
     id: 2,
     title: 'WOMEN',
-    image: 'http://res.cloudinary.com/atf19/image/upload/c_scale,w_460/v1500284237/pexels-photo-324030_wakzz4.jpg'
+    //image: 'http://res.cloudinary.com/atf19/image/upload/c_scale,w_460/v1500284237/pexels-photo-324030_wakzz4.jpg'
+    image: 'https://ruparavulakollu.000webhostapp.com/images/women.jpeg'
   },
   {
     id: 3,
     title: 'KIDS',
-    image: 'http://res.cloudinary.com/atf19/image/upload/c_scale,w_445/v1500284286/child-childrens-baby-children-s_shcevh.jpg'
+    //image: 'http://res.cloudinary.com/atf19/image/upload/c_scale,w_445/v1500284286/child-childrens-baby-children-s_shcevh.jpg'
+    image: 'https://ruparavulakollu.000webhostapp.com/images/kids.jpeg'
   },
   {
     id: 4,
     title: 'ACCESORIES',
-    image: 'http://res.cloudinary.com/atf19/image/upload/c_scale,w_467/v1500284346/pexels-photo-293229_qxnjtd.jpg'
+    //image: 'http://res.cloudinary.com/atf19/image/upload/c_scale,w_467/v1500284346/pexels-photo-293229_qxnjtd.jpg'
+    image: 'https://ruparavulakollu.000webhostapp.com/images/accessories.jpeg'
   }
 ];
