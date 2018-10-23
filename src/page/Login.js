@@ -4,6 +4,7 @@
 
 // React native and others libraries imports
 import React, { Component } from 'react';
+import {AsyncStorage} from 'react-native';
 import { Container, View, Left, Right, Button, Icon, Item, Input } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
@@ -75,7 +76,31 @@ export default class Login extends Component {
       Username: this.state.username
       Password: this.state.password
     */
-    this.setState({hasError: true, errorText: 'Invalid username or password !'});
+   var username=this.state.username;
+   var password = this.state.password;
+   const k = this;
+   AsyncStorage.getItem("USER",(error,res)=>{
+      //alert(res+username);
+      if(res!== username) {
+        
+      k.setState({hasError:true,errorText:'User does not exists !'});
+      Actions.signup();
+      }
+     else {
+      AsyncStorage.getItem("PASSWORD",(error,res)=>{
+        if(res!== password) { 
+          //alert(res+password);
+          k.setState({hasError:true,errorText:'Invalid password !'});
+        }else{
+          Actions.category();
+          AsyncStorage.setItem("LOGIN","true");
+        } 
+     });
+     }
+     
+   });
+   
+    //this.setState({hasError: true, errorText: 'Invalid username or password !'});
   }
 
 

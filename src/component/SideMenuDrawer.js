@@ -8,7 +8,7 @@ import { Keyboard } from 'react-native';
 import Drawer from 'react-native-drawer';
 
 
-// Our custom files and classes import
+// My custom files and classes import
 import SideMenu from './SideMenu';
 
 

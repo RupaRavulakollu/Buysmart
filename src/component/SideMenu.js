@@ -4,11 +4,11 @@
 
 // React native and others libraries imports
 import React, { Component } from 'react';
-import { ScrollView, LayoutAnimation, UIManager, Linking } from 'react-native';
+import { ScrollView, LayoutAnimation, UIManager, Linking,AsyncStorage } from 'react-native';
 import { View, List, ListItem, Body, Left, Right, Icon, Item, Input, Button, Grid, Col } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
-// Our custom files and classes import
+// My custom files and classes import
 import SideMenuSecondLevel from './SideMenuSecondLevel';
 import Text from './Text';
 
@@ -158,6 +158,14 @@ export default class SideMenu extends Component {
   }
 
   renderSecondaryList() {
+    // let i;
+    // AsyncStorage.getItem("LOGIN",(error,res)=>{
+    //     if(res === true)
+    //     {
+    //       i=2;
+    //     }
+    // });
+
     let secondaryItems = [];
     menusSecondaryItems.map((item, i) => {
       secondaryItems.push(
@@ -276,7 +284,7 @@ var menuItems = [
 ];
 
 
-const menusSecondaryItems = [
+const menusSecondaryItems= [
   {
     id: 190,
     title: 'Login',

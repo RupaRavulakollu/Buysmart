@@ -4,7 +4,7 @@
 
 // React native and others libraries imports
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView,AsyncStorage } from 'react-native';
 import { Container, View, Left, Right, Button, Icon, Item, Input } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
@@ -109,6 +109,9 @@ export default class Signup extends Component {
       return;
     }
     this.setState({hasError: false});
+    //Actions.home();
+    AsyncStorage.setItem("USER",this.state.username);
+    AsyncStorage.setItem("PASSWORD",this.state.password);
     Actions.home();
   }
 
