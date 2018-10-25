@@ -24,8 +24,11 @@ import ImageGallery from './page/ImageGallery';
 import Login from './page/Login';
 import Signup from './page/Signup';
 import Checkout from './page/Checkout';
+import FingerPrintScan from './page/FinerPrintScan';
 
 export default class Main extends Component {
+  
+ 
   componentWillMount = () => {
     BackHandler.addEventListener('hardwareBackPress', () => Actions.pop());
   };
@@ -48,6 +51,7 @@ export default class Main extends Component {
             <Scene key="login" component={Login} hideNavBar />
             <Scene key="signup" component={Signup} hideNavBar />
             <Scene key="checkout" component={Checkout} hideNavBar />
+            <Scene key="fingerprint" component={FingerPrintScan} hideNavBar/>
           </Scene>
         </Router>
       </Root>

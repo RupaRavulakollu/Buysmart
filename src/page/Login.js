@@ -79,26 +79,46 @@ export default class Login extends Component {
    var username=this.state.username;
    var password = this.state.password;
    const k = this;
-   AsyncStorage.getItem("USER",(error,res)=>{
-      //alert(res+username);
-      if(res!== username) {
+   
+   fetch("http://172.16.5.120:3001/login",{
+    method : 'POST',
+    headers:{
+      Accept:'application/json',
+      'Content-Type':'application/json'
+    },
+    body:JSON.stringify({
+      username:username,
+      password:password,
+    }),    
+  }).then((res)=>{
+    //var response = JSON.stringify(res);
+    console.warn(res._bodyText)
+  })
+  .catch((error)=>{
+    alert("error..."+JSON.stringify(error))
+  });
+   
+  
+  // AsyncStorage.getItem("USER",(error,res)=>{
+  //     //alert(res+username);
+  //     if(res!== username) {
         
-      k.setState({hasError:true,errorText:'User does not exists !'});
-      Actions.signup();
-      }
-     else {
-      AsyncStorage.getItem("PASSWORD",(error,res)=>{
-        if(res!== password) { 
-          //alert(res+password);
-          k.setState({hasError:true,errorText:'Invalid password !'});
-        }else{
-          Actions.category();
-          AsyncStorage.setItem("LOGIN","true");
-        } 
-     });
-     }
+  //     k.setState({hasError:true,errorText:'User does not exists !'});
+  //     Actions.signup();
+  //     }
+  //    else {
+  //     AsyncStorage.getItem("PASSWORD",(error,res)=>{
+  //       if(res!== password) { 
+  //         //alert(res+password);
+  //         k.setState({hasError:true,errorText:'Invalid password !'});
+  //       }else{
+  //         Actions.category();
+  //         AsyncStorage.setItem("LOGIN","true");
+  //       } 
+  //    });
+  //    }
      
-   });
+  //  });
    
     //this.setState({hasError: true, errorText: 'Invalid username or password !'});
   }

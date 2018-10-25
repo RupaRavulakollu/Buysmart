@@ -14,7 +14,7 @@ import Navbar from '../component/Navbar';
 import SideMenu from '../component/SideMenu';
 import SideMenuDrawer from '../component/SideMenuDrawer';
 import CategoryBlock from '../component/CategoryBlock';
-
+import TouchID from 'react-native-touch-id';
 
 export default class Home extends Component {
   render() {
@@ -45,6 +45,22 @@ export default class Home extends Component {
           </Container>
       </SideMenuDrawer>
     );
+  }
+  
+  _pressHandler() {
+    TouchID.authenticate('')
+      .then(success => {
+        alert('Authenticated Successfully');
+        Actions.home()
+      })
+      .catch(error => {
+        //alert('Authentication Failed')
+        this._pressHandler()
+      });
+  }
+
+  componentWillMount(){
+    this._pressHandler()
   }
 
   renderCategories() {

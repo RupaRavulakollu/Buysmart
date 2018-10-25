@@ -110,8 +110,27 @@ export default class Signup extends Component {
     }
     this.setState({hasError: false});
     //Actions.home();
-    AsyncStorage.setItem("USER",this.state.username);
-    AsyncStorage.setItem("PASSWORD",this.state.password);
+    
+    var username = this.state.username;
+    var password = this.state.password;
+    var email = this.state.email;
+    fetch("http://10.42.0.114:3001/signup/",{
+      method : 'POST',
+      headers:{
+        Accept:'application/json',
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify({
+        email:email,
+        username:username,
+        password:password,
+      }),    
+    }).then((res)=>{console.warn("fetch...."+this.state.username+this.state.password) 
+    alert(res.json())})
+    .catch((error)=>{alert(error)});
+
+    // AsyncStorage.setItem("USER",this.state.username);
+    // AsyncStorage.setItem("PASSWORD",this.state.password);
     Actions.home();
   }
 
@@ -119,6 +138,8 @@ export default class Signup extends Component {
     var reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return reg.test(email);
   }
+
+  
 
 
 }
